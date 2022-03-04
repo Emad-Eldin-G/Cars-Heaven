@@ -1,0 +1,53 @@
+{% extends "frontend/Layout.html" %}
+{% load static %}
+
+{% block body %}
+
+
+    <h1 id="Home-h1">Project Cars Heaven</h1>
+
+    <div id="Home-div-box">
+
+
+    </div>
+
+
+
+
+    <!-- This is the JavaScript to renew the Homepage with 
+         all cars in the DataBase -->
+    <script type="text/javascript">
+
+        document.addEventListener("DOMContentLoaded", AddDiv())
+
+        function AddDiv() {
+
+            var wrapper = document.getElementById("Home-div-box")
+            var url = 'http://127.0.0.1:8000/api/Cars'
+
+            fetch(url)
+            .then((reponse) => reponse.json())
+            .then(data =>{
+                console.log(data)
+
+                var cars = data
+                for (var car of cars){
+
+                    var newdiv = 
+                    `<div id="${car.Car_ID}">
+                        <h3>${car.Brand} ${car.Name}</h3>
+                        <h4>Model: ${car.Model}</h4>
+                        <button class="btn-checkout" name="btn-checkout"> <a href="http://127.0.0.1:8000/${car.Car_ID}">Check Out Page</a> </button> <br>
+                        <img src=${car.Image} width="250" alt="${car.Model} ${car.Brand} ${car.Name}">
+                    </div>`
+                    
+                    wrapper.innerHTML += newdiv
+                }
+            })
+            .catch((error) => {
+                console.log(error)})
+        }
+    </script>
+
+
+{% endblock %}

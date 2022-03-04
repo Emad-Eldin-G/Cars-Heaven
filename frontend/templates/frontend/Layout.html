@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Cars Heaven</title>
+    <link rel="icon" type="image/x-icon" href="frontend\static\media\Circle-icons-car.svg.png">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <script src="{% static 'js/api.js' %}"></script>
+    
+</head>
+
+<body>
+
+    <!-- This is the 'div' for top Nav-Bar -->
+    <div class="topnav">
+        <a  id="Home"   href="{% url 'home' %}">Home</a>
+        <a  id="New"    href="{% url 'New' %}">Latest Cars</a>
+        <a  id="Brands" href="Brands.html">Brands</a> 
+    </div>
+
+    <!-- To be used by other pages -->
+    {% block body %}
+
+    {% endblock %}
+    
+</body>
+
+</html>

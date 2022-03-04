@@ -1,0 +1,42 @@
+{% extends "frontend/Layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div id="Car-div-box">
+</div>
+
+
+<script type="text/javascript">
+
+    document.addEventListener("DOMContentLoaded", AddDiv())
+
+    function AddDiv() {
+
+        var wrapper = document.getElementById("Car-div-box")
+        var url = 'http://127.0.0.1:8000/api/Cars' + window.location.pathname
+
+        fetch(url)
+        .then((reponse) => reponse.json())
+        .then((data) => {console.log(data)
+
+        var newdiv = 
+                `<div id="Car-${data.Car_ID}">
+                    <h1 id="Car-h1">${data.Brand} ${data.Name}</h1>
+                    <h4 id="Car-h4">Model: ${data.Model} &nbsp &nbsp &nbsp Type: ${data.Type}</h4> 
+                    <div>
+                    <img src=${data.Image} width="720" alt="${data.Model} ${data.Brand} ${data.Name}">
+                    </div>
+                    <section id="Car-Section"> 
+                        <p>Details:</p>
+                        <div id="Speed"><p>Top Speed: ${data.Top_Speed}km/h</p></div>
+                        <div id="Tank"><p>Tank Size: ${data.Tank_Size}L</p></div>
+                        <br>
+                    </section>
+                </div>`
+
+        wrapper.innerHTML += newdiv  
+            
+            })}
+</script>
+{% endblock %}
