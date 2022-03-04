@@ -7,6 +7,7 @@ class Car(models.Model):
         ("SUV", "SUV"), 
         ("Sedan", "Sedan"), 
         ("Hatchback", "Hatchback"),
+        ("Sport", "Sport"),
         )
 
     Car_ID    = models.AutoField(primary_key=True, unique=True, null=False, blank=False, )

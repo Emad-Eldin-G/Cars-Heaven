@@ -14,3 +14,6 @@ def New(request):
 
 def Car(request, pk):
     return render(request, "frontend/Specific.html")
+
+def Brands(request):
+    return render(request, "frontend/Brands.html")
