@@ -9,11 +9,5 @@ def index(request):
 def home(request):
     return render(request, "frontend/Home.html")
 
-def New(request):
-    return render(request, "frontend/New.html")
-
-def Car(request, pk):
-    return render(request, "frontend/Specific.html")
-
-def Brands(request):
-    return render(request, "frontend/Brands.html")
+def blog(request):
+    return render(request, "frontend/Blog.html")

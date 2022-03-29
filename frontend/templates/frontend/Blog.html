@@ -1,0 +1,49 @@
+{% extends "frontend/Layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="all-blog">
+    <div class="blog-header">
+        <!-- Ad placeholder -->
+        <img src="http://127.0.0.1:8000/frontend/static/media/ad-placeholder-large.png" alt="Sponsered Ad" width="50%">
+    </div>
+  
+    <div class="blog-row">
+    <div class="blog-leftcolumn">
+        <div class="blog-card">
+        <h2>TITLE HEADING</h2>
+        <h5>Title description, Dec 7, 2017</h5>
+        <div class="blog-img" style="height:200px;">Image</div>
+        <p>Some text..</p>
+        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+        <div class="blog-card">
+        <h2>TITLE HEADING</h2>
+        <h5>Title description, Sep 2, 2017</h5>
+        <div class="blog-img" style="height:200px;">Image</div>
+        <p>Some text..</p>
+        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <div class="blog-rightcolumn">
+        <div class="blog-card">
+        <h2>About Me</h2>
+        <div class="blog-img" style="height:100px;">Image</div>
+        <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+        </div>
+        <div class="blog-card">
+        <h3>Popular Post</h3>
+        <div class="blog-img">Image</div><br>
+        <div class="blog-img">Image</div><br>
+        <div class="blog-img">Image</div>
+        </div>
+        <div class="blog-card">
+        <h3>Follow Me</h3>
+        <p>Some text..</p>
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
+
