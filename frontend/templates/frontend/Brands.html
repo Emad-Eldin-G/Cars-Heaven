@@ -3,6 +3,205 @@
 
 {% block body %}
 
-<h1>Hello</h1>
+<h1 id="h1-Brands">Heaven Filter</h1>
 
+<div id="brands-container">
+    <ul id="brand-letters-ul">
+
+        <div id="letter">
+            <h5>A</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>B</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>C</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>D</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>E</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>F</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>G</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>H</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>I</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>J</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>K</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>L</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>M</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>N</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>O</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>P</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>Q</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>R</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>S</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>T</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>U</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>V</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>W</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>X</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>Y</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        <div id="letter">
+            <h5>Z</h5>
+            <div id="Car-Logo">
+
+            </div>
+        </div>
+        
+    </ul>
+</div>
+
+
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', Populate())
+
+    function Populate() {
+
+    var wrapper = document.querySelector(".letter").
+        console.log(wrapper)
+
+    var thediv  = document.getElementById("Car-Logo")
+    console.log(wrapper)
+    var url = 'http://127.0.0.1:8000/api/Cars'
+
+    fetch(url)
+    .then((reponse) => reponse.json())
+    .then(data =>{
+
+        var cars = data
+        for (var car of cars){
+            if (car.Brand[0] === wrapper){
+                var newdiv = 
+                `<div id="Brand-Car">
+                    <img src=${car.BrandImage} width="250" alt="${car.Brand} Logo">
+                </div>`
+
+                thediv.innerHTML += newdiv
+                console.log('success')
+            }else{
+                console.log('fail')
+            }
+        }
+    })}
+        
+</script>
 {% endblock %}

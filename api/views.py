@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import Car
-from .serializers import CarSerializer
+from .models import Model
+from .serializers import ModelSerializer
 from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -15,20 +15,20 @@ class All_Cars(APIView):
 
 
 	def get(self, request):
-		Cars = Car.objects.all()
-		serializer = CarSerializer(Cars, many=True)
+		Cars = Model.objects.all()
+		serializer = ModelSerializer(Cars, many=True)
 
 		return Response(serializer.data)
 
 #------------------------------------------------------------------------------#
 
 
-class Specific_Cars(APIView):
+class Specific_Car(APIView):
 
 
-	def get(self, request, pk):
-		Cars = Car.objects.get(Car_ID=pk)
-		serializer = CarSerializer(Cars, many=False)
+	def get(self, request, name):
+		Cars = Model.objects.get(Name=name)
+		serializer = ModelSerializer(Cars, many=False)
 
 		return Response(serializer.data)
 
@@ -39,8 +39,20 @@ class Brand(APIView):
 
 
 	def get(self, request, brand):
-		Cars = Car.objects.filter(Brand = brand)
-		serializer = CarSerializer(Cars, many=True)
+		Cars = Model.objects.filter(Brand=brand)
+		serializer = ModelSerializer(Cars, many=True)
+
+		return Response(serializer.data)
+
+#------------------------------------------------------------------------------#
+
+
+class Top_Speed(APIView):
+
+
+	def get(self, request):
+		Cars = Model.objects.order_by('-Top_Speed')
+		serializer = ModelSerializer(Cars, many=True)
 
 		return Response(serializer.data)
 
