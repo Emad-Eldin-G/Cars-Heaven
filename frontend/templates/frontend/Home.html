@@ -21,7 +21,60 @@
                 <div class="carousel-caption">
                   <h2>Latest Cars</h2>
                   <p>Get notified with the latest cars as soon as they are announced</p>
+
+                  <!-- Pop up modal -->
+                  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id="Modal-1">
+                          <!-- form to send newsletter subscribtion-->
+                          <form action="" method="POST" class="Newsletter-Register">
+                            <div class="form-group row">
+                                <label for="Email" class="col-sm-2 col-form-label">Email:</label>
+                                <br>
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control" id="Email" placeholder="example@gmail.com">
+                                </div>
+                            </div>
+                              
+                            <div class="form-group row">
+                                <label for="Password" class="col-sm-2 col-form-label">Password:</label>
+                                <div class="col-sm-10">
+                                  <input type="password" class="form-control" id="Password" placeholder="Password">
+                                </div>
+                            </div>
+                          </form>
+
+                        </div>
+                        <div class="modal-footer">
+                          <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Subscribe</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Hide this modal and show the first with the button below.
+                        </div>
+                        <!-- <div class="modal-footer">
+                          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>
+                        </div> -->
+                      </div>
+                    </div>
+                  </div>
+                  <a class="btn" style="color: white; border: 1px solid white;" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Subscribe</a>
                 </div>
+
             </div>
 
             <div class="carousel-item">
@@ -29,6 +82,7 @@
                 <div class="carousel-caption">
                   <h2>Car Reviews</h2>
                   <p>Specialised in reviewing new Car Technologies</p>
+                  <button style="background-color: transparent; border: 1px solid white; margin: 2px; color: white;" type="button" class="btn">Check out Blog</button>
                 </div>
             </div>
 
@@ -37,7 +91,7 @@
                 <div class="carousel-caption">
                   <h2>Car Picker Tool</h2>
                   <p>Get your perfect car suggestion based on your budget and preferences</p>
-                  <button style="background-color: transparent; border: 1px solid white;" type="button" class="btn btn-secondary btn-sm">Try it now</button>
+                  <button style="background-color: transparent; border: 1px solid white; margin: 2px; color: white;" type="button" class="btn">Try it now</button>
                 </div>
             </div>
 
