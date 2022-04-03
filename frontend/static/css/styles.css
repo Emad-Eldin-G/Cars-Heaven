@@ -63,12 +63,23 @@
   font-size: 15px;
 }
 
+@media screen and (min-width: 1000px){
+  .carousel-caption{
+    font-size: 50px;
+  }    
+}
+
 .modal-body form div label{
   color: black;
 }
 
 .modal-body form div{
   margin: 2px;
+}
+
+.col-form-label{
+  font-size: 20px;
+  color: #222222;
 }
 
 /* ------------------------------------------------------------------------------------------ */
