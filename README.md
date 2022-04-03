@@ -5,6 +5,6 @@ Building a backend rest API that serves the frontend of a all-purpose Cars WebAp
 
 Tools Used:
 -------------------
-Django - RESTapi - PostgreSQL - BootStrap5
+Django - REST-API - PostgreSQL - Bootstrap 5
 
 Status: (Under Dev)
