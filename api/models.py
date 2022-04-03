@@ -15,6 +15,14 @@ class Model(models.Model):
         ("Hatchback", "Hatchback"),
         ("Sport", "Sport"),
         )
+
+
+    power = (
+        ("Gas", "Gas"), 
+        ("Electric", "Electric"), 
+        ("Hybrid", "Hybrid"),
+        ("Hydrogen", "Hydrogen"),
+        )
         
     years = (
     (2015, '2015'),
@@ -32,11 +40,11 @@ class Model(models.Model):
     Year         = models.IntegerField(choices=years) 
     Brand        = models.ForeignKey('Brand', null=True, on_delete=models.CASCADE)
     Type         = models.CharField(choices=types, max_length=20, default='Sedan')
-    Electric     = models.BooleanField(default=False)
-    Price        = models.IntegerField(null=True) #MSRP
-    Top_Speed    = models.IntegerField(null=True) #In miles
-    Milage       = models.IntegerField(null=True)
-    Tank_Size    = models.IntegerField(null=True, blank=True) #Null if electric=True
+    Power        = models.CharField(choices=power, default='Gas', max_length=12)
+    Price        = models.PositiveIntegerField(null=True) #MSRP
+    Top_Speed    = models.PositiveIntegerField(null=True) #In miles
+    Milage       = models.PositiveIntegerField(null=True)
+    Tank_Size    = models.PositiveIntegerField(null=True, blank=True) #Null if electric=True
     Images       = models.ForeignKey('Image', on_delete=models.PROTECT, null=True, blank=True)
     
     def __str__(self):
