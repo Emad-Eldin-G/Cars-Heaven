@@ -23,6 +23,10 @@
 
 <body>
 
+  <div class="loader-wrapper" style="width: 100%; height: 100%; position: fixed; z-index: 100; display: flex; justify-content: center; align-items: center; background-color: rgb(34, 34, 34);">
+    <span class="loader"><span class="loader-inner"><img id="Loading-Logo" src="http://127.0.0.1:8000/frontend/static/media/Cars-heaven-Logo.png" width="350" alt="Loading..."></span></span>
+  </div>
+
     <!-- This is the 'div' for top Nav-Bar -->
     <div class="menu-bar .sticky-top" id="Nav-Bar">
 
@@ -62,6 +66,12 @@
 
     {% endblock %}
     
+
+    <script>
+      $(window).on('load', ()=> {
+        $(".loader-wrapper").fadeOut("slow")
+      })
+    </script>
 </body>
 
 </html>
