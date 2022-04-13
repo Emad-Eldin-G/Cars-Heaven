@@ -1,3 +1,5 @@
+from importlib.resources import path
+from pyexpat import model
 from django.db import models
 
 # Create your models here.
@@ -61,3 +63,12 @@ class Image(models.Model):
     
     def __str__(self):
         return (f"{self.Car}")
+
+class Blog(models.Model):
+    Car        = models.ForeignKey('Model', on_delete=models.PROTECT, null=True, blank=True)
+    Title      = models.CharField(null=True, max_length=50)
+    Created_at = models.DateField(auto_now_add=True)
+    Body       = models.FilePathField(path='blogs', recursive=True)
+
+    def __str__(self):
+        return (f"{self.Title}")
