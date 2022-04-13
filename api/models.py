@@ -5,7 +5,7 @@ from django.db import models
 # Create your models here.
 class Brand(models.Model):
     Name        = models.CharField(primary_key=True, unique=True, null=False, blank=False, max_length=25)
-    BrandImage  = models.ImageField(upload_to = 'frontend\static\media')
+    BrandImage  = models.ImageField(upload_to = r'frontend\static\media\Brands', null=True)
     
     def __str__(self):
         return (f"{self.Name}")
@@ -54,12 +54,12 @@ class Model(models.Model):
 
 class Image(models.Model):
     Car            = models.ForeignKey('Model', primary_key=True, on_delete=models.CASCADE)
-    Front          = models.ImageField(upload_to = 'frontend\static\media')
-    Back           = models.ImageField(upload_to = 'frontend\static\media')
-    Side           = models.ImageField(upload_to = 'frontend\static\media')
-    Interior_Front = models.ImageField(upload_to = 'frontend\static\media')
-    Interior_Back  = models.ImageField(upload_to = 'frontend\static\media')
-    On_Road        = models.ImageField(upload_to = 'frontend\static\media')
+    Front          = models.ImageField(upload_to = r'frontend\static\media\Frontview', null=True)
+    Back           = models.ImageField(upload_to = r'frontend\static\media\Backview', null=True)
+    Side           = models.ImageField(upload_to = r'frontend\static\media\Sideview', null=True)
+    Interior_Front = models.ImageField(upload_to = r'frontend\static\media\InteriorFront', null=True)
+    Interior_Back  = models.ImageField(upload_to = r'frontend\static\media\InteriorBack', null=True)
+    On_Road        = models.ImageField(upload_to = r'frontend\static\media\Onroad', null=True)
     
     def __str__(self):
         return (f"{self.Car}")
@@ -67,6 +67,7 @@ class Image(models.Model):
 class Blog(models.Model):
     Car        = models.ForeignKey('Model', on_delete=models.PROTECT, null=True, blank=True)
     Title      = models.CharField(null=True, max_length=50)
+    Thumbnail  = models.ImageField(upload_to = r'frontend\static\media\Thumbnails', null=True)
     Created_at = models.DateField(auto_now_add=True)
     Body       = models.FilePathField(path='blogs', recursive=True)
 
