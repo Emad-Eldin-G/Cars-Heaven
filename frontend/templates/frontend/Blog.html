@@ -45,5 +45,37 @@
     </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('http://127.0.0.1:8000/api/Cars/brands/all')
+        .then(reponse => reponse.json())
+        .then(brand => {
+            console.log(brand)
+            
+            brand.forEach(element => {
+                const name = element.Name
+                const image = element.BrandImage
+                
+                const div = document.createElement('div')
+                    div.innerHTML = `
+                    <div style="margin: 10px; position: relative; width: 220px" id="index-child-div">
+
+                        <div class="card" id='brand-card' style="width: 200px; height: 250px; display: block; text-align: center">
+                        <img src="http://127.0.0.1:8000${image}" width='100' alt="None">
+                        <div class="card-body">
+
+                        <div>
+                        <h5 class="card-title" id='brand-name'>${name}</h5>
+                        <a href="/brands/${name}" class="btn btn-primary">Go somewhere</a>
+                        </div>
+
+                    </div>`
+                const page = document.getElementById('brands-list')
+                page.append(div)
+            });
+        })
+    })
+</script>
 {% endblock %}
 

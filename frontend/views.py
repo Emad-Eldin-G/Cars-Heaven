@@ -11,3 +11,6 @@ def home(request):
 
 def blog(request):
     return render(request, "frontend/Blog.html")
+
+def brands(request):
+    return render(request, "frontend/Brands.html")
