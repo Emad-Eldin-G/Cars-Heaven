@@ -64,12 +64,12 @@ class Image(models.Model):
     def __str__(self):
         return (f"{self.Car}")
 
-class Blog(models.Model):
+class blog(models.Model):
     Car        = models.ForeignKey('Model', on_delete=models.PROTECT, null=True, blank=True)
     Title      = models.CharField(null=True, max_length=50)
     Thumbnail  = models.ImageField(upload_to = r'frontend\static\media\Thumbnails', null=True)
     Created_at = models.DateField(auto_now_add=True)
-    Body       = models.FilePathField(path='blogs', recursive=True)
+    Body       = models.FilePathField(path='blogs')
 
     def __str__(self):
         return (f"{self.Title}")

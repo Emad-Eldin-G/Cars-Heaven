@@ -1,20 +1,20 @@
-from django.shortcuts import render
-from .models import Model
-from .serializers import ModelSerializer
 from django.http import JsonResponse
-from rest_framework.response import Response
+from django.shortcuts import render
+from rest_framework import authentication, permissions
 from rest_framework.decorators import api_view
+from rest_framework.response import Response
 from rest_framework.views import APIView
-
-
+from .models import Brand, Model, blog
+from .serializers import BlogSerializer, BrandSerializer, ModelSerializer
 
 # Create your views here.
 
 #General Car information
 class All_Cars(APIView):
 
+	queryset = Model.objects.all()
 
-	def get(self, request):
+	def get(self, request, *args, **kwargs):
 		Cars = Model.objects.all()
 		serializer = ModelSerializer(Cars, many=True)
 
@@ -22,19 +22,29 @@ class All_Cars(APIView):
 
 class Specific_Car(APIView):
 
+	queryset = Model.objects.all()
 
-	def get(self, request, name):
+	def get(self, request, name, *args, **kwargs):
 		Cars = Model.objects.get(Name=name)
 		serializer = ModelSerializer(Cars, many=False)
+		view = True
+
+		return Response(serializer.data)
+		
+class Car_Brand(APIView):
+
+
+	def get(self, request, brand, *args, **kwargs):
+		Cars = Model.objects.filter(Brand=brand)
+		serializer = ModelSerializer(Cars, many=True)
 
 		return Response(serializer.data)
 
-class Brand(APIView):
+class All_brands(APIView):
 
-
-	def get(self, request, brand):
-		Cars = Model.objects.filter(Brand=brand)
-		serializer = ModelSerializer(Cars, many=True)
+	def get(self, request, *args, **kwargs):
+		Brands = Brand.objects.all()
+		serializer = BrandSerializer(Brands, many=True)
 
 		return Response(serializer.data)
 
@@ -45,7 +55,7 @@ class Brand(APIView):
 class Top_Speed(APIView):
 
 
-	def get(self, request):
+	def get(self, request, *args, **kwargs):
 		Cars = Model.objects.order_by('-Top_Speed')
 		serializer = ModelSerializer(Cars, many=True)
 
@@ -54,7 +64,7 @@ class Top_Speed(APIView):
 class Low_Speed(APIView):
 
 
-	def get(self, request):
+	def get(self, request, *args, **kwargs):
 		Cars = Model.objects.order_by('Top_Speed')
 		serializer = ModelSerializer(Cars, many=True)
 
@@ -67,7 +77,7 @@ class Low_Speed(APIView):
 class Type_Sedan(APIView):
 
 
-	def get(self, request):
+	def get(self, request, *args, **kwargs):
 		Cars = Model.objects.filter(Type='Sedan')
 		serializer = ModelSerializer(Cars, many=True)
 
@@ -76,7 +86,7 @@ class Type_Sedan(APIView):
 class Type_SUV(APIView):
 
 
-	def get(self, request):
+	def get(self, request, *args, **kwargs):
 		Cars = Model.objects.f(Type='SUV')
 		serializer = ModelSerializer(Cars, many=True)
 
@@ -85,7 +95,7 @@ class Type_SUV(APIView):
 class Type_Sport(APIView):
 
 
-	def get(self, request):
+	def get(self, request, *args, **kwargs):
 		Cars = Model.objects.filter(Type='Sport')
 		serializer = ModelSerializer(Cars, many=True)
 
@@ -94,7 +104,7 @@ class Type_Sport(APIView):
 class Type_Hatchback(APIView):
 
 
-	def get(self, request):
+	def get(self, request, *args, **kwargs):
 		Cars = Model.objects.filter(Type='Hatchback')
 		serializer = ModelSerializer(Cars, many=True)
 
@@ -105,7 +115,7 @@ class Type_Hatchback(APIView):
 class Power_Gas(APIView):
 
 
-	def get(self, request):
+	def get(self, request, *args, **kwargs):
 		Cars = Model.objects.filter(Power='Gas')
 		serializer = ModelSerializer(Cars, many=True)
 
@@ -114,8 +124,8 @@ class Power_Gas(APIView):
 class Power_Electric(APIView):
 
 
-	def get(self, request):
-		Cars = Model.objects.f(Power='Electric')
+	def get(self, request, *args, **kwargs):
+		Cars = Model.objects.filter(Power='Electric')
 		serializer = ModelSerializer(Cars, many=True)
 
 		return Response(serializer.data)
@@ -123,7 +133,7 @@ class Power_Electric(APIView):
 class Power_Hybrid(APIView):
 
 
-	def get(self, request):
+	def get(self, request, *args, **kwargs):
 		Cars = Model.objects.filter(Power='Hybrid')
 		serializer = ModelSerializer(Cars, many=True)
 
@@ -132,7 +142,7 @@ class Power_Hybrid(APIView):
 class Power_Hydrogen(APIView):
 
 
-	def get(self, request):
+	def get(self, request, *args, **kwargs):
 		Cars = Model.objects.filter(Power='Hydrogen')
 		serializer = ModelSerializer(Cars, many=True)
 
@@ -143,7 +153,7 @@ class Power_Hydrogen(APIView):
 class Year_of_make(APIView):
 
 
-	def get(self, request, year):
+	def get(self, request, year, *args, **kwargs):
 		Cars = Model.objects.filter(Year=year)
 		serializer = ModelSerializer(Cars, many=True)
 
@@ -152,7 +162,7 @@ class Year_of_make(APIView):
 class Sort_Newest(APIView):
 
 
-	def get(self, request):
+	def get(self, request, *args, **kwargs):
 		Cars = Model.objects.order_by('-Year')
 		serializer = ModelSerializer(Cars, many=True)
 
@@ -161,11 +171,22 @@ class Sort_Newest(APIView):
 class Sort_Oldest(APIView):
 
 
-	def get(self, request):
+	def get(self, request, *args, **kwargs):
 		Cars = Model.objects.order_by('Year')
 		serializer = ModelSerializer(Cars, many=True)
 
 		return Response(serializer.data)
 
 
+#------------------------------------------------------------------------------#
+#The BLOG
+
+class All_blogs(APIView):
+
+
+	def get(self, request, *args, **kwargs):
+		Blogs = blog.objects.all()
+		serializer = BlogSerializer(Blogs, many=True)
+
+		return Response(serializer.data)
 
