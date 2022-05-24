@@ -43,7 +43,7 @@ class Car_Brand(APIView):
 class All_brands(APIView):
 
 	def get(self, request, *args, **kwargs):
-		Brands = Brand.objects.all()
+		Brands = Brand.objects.all().order_by('Name')
 		serializer = BrandSerializer(Brands, many=True)
 
 		return Response(serializer.data)

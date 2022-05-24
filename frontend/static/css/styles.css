@@ -159,7 +159,19 @@ html {
 /* ------------------------------------------------------------------------------------------ */
 /* BLOG.HTML */
 
-#Brands-ul {
-  display: inline-flex;
-  margin: 15px;
+.brands-list {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
 }
+
+.brands-list > * {
+  flex: 0 1 10em;
+  margin: 20px;
+}
+
+#letter {
+  position: relative;
+  text-align: left;
+}
+
