@@ -14,65 +14,64 @@
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-         
-                const letterpage = document.getElementById('letter-place')
-                const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+document.addEventListener('DOMContentLoaded', () => {
 
-                for (let letter of alphabet) {
-                    const letterDiv = document.createElement('div') 
-                    console.log(letter)
-                    const content = `
-                        <div id="${letter}">
-                        <h3 id="letter">${letter}</h3>
-                        <hr>
-                        <div id="brands-list-${letter}" class="brands-list">
+const letterpage = document.getElementById('letter-place')
+const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
-                        </div>
-                        </div>
-                    `;
-                    letterDiv.innerHTML = content
-                    console.log(content)
-                    letterpage.append(letterDiv)
-                }
+for (let letter of alphabet) {
+    const letterDiv = document.createElement('div')
+    console.log(letter)
+    const content = `
+                    <div id="${letter}">
+                    <h3 id="letter">${letter}</h3>
+                    <hr>
+                    <div id="brands-list-${letter}" class="brands-list">
 
-        
-        fetch('http://127.0.0.1:8000/api/brands/all')
-        .then(reponse => reponse.json())
-        .then(brand => {
-            console.log(brand)
+                    </div>
+                    </div>
+                `;
+    letterDiv.innerHTML = content
+    console.log(content)
+    letterpage.append(letterDiv)
+}
 
-            brand.forEach(element => {
-                    const name = element.Name
-                    const image = element.BrandImage
-                    const div = document.createElement('div')
-                    div.innerHTML = `
 
-                        <div id="index-child-div">
+fetch('http://127.0.0.1:8000/api/brands/all')
+.then(reponse => reponse.json())
+.then(brand => {
+    console.log(brand)
 
-                            <div class="card" id='brand-card' style="width: 200px; height: 250px; display: block; text-align: center">
-                            <img src="http://127.0.0.1:8000${image}" width='100' alt="None">
-                            <div class="card-body">
+    brand.forEach(element => {
+        const name = element.Name
+        const image = element.BrandImage
+        const div = document.createElement('div')
+        div.innerHTML = 
+                `<div id="index-child-div">
 
-                            <div class="card-body" style="position: absolute; bottom: 0px;">
-                            <h5 class="card-title" id='brand-name'>${name}</h5>
-                            <a href="/brands/${name}" class="btn btn-primary">Check out Page</a>
-                            </div>
+                    <div class="card" id='brand-card' style="width: 200px; height: 250px; display: block; text-align: center">
+                    <img src="http://127.0.0.1:8000${image}" width='100' alt="None">
+                    <div class="card-body">
 
-                        </div>`
-                    const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
-                    alphabet.forEach(letter => {
-                        let page = document.getElementById(`brands-list-${letter}`)
-                        if (letter == name[0]) {
-                            page.append(div)
-                        
-                        } /* else {
-                            document.getElementById(letter).style.visibility='hidden'
-                        }   */
-                    });   
-                
-            });
-        })
-    })
+                    <div class="card-body" style="position: absolute; bottom: 0px;">
+                    <h5 class="card-title" id='brand-name'>${name}</h5>
+                    <a href="/brands/${name}" class="btn btn-primary">Check out Page</a>
+                    </div>
+
+                </div>`
+
+        const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+        alphabet.forEach(letter => {
+            let page = document.getElementById(`brands-list-${letter}`)
+            if (letter == name[0]) {
+                page.append(div)
+
+            }
+
+        });
+
+    });
+})
+})
 </script>
 {% endblock %}
