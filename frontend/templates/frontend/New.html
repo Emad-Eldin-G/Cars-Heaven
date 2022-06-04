@@ -14,39 +14,15 @@
 
     function AddDiv() {
 
-        var wrapper = document.getElementById("New-div-box")
-        var url = 'http://127.0.0.1:8000/api/Cars'
-
-        fetch(url)
-        .then((reponse) => reponse.json())
-        .then(data =>{
-
-            var cars = data
-            console.log(cars)
-            for (var car of cars){
-
-                if (car.Model === 2023) {
-                    var newdiv = 
-                        `<div id="New-${car.Car_ID}">
-                            <h2 id="New-h2">${car.Brand} ${car.Name}</h3>
-                            <h4 id="New-h4">Model: ${car.Model} &nbsp &nbsp &nbsp Type: ${car.Type}</h4> 
-                            <div>
-                            <img src=${car.Image} width="720" alt="${car.Model} ${car.Brand} ${car.Name}">
-                            </div>
-                            <section id="New-Section"> 
-                                <p>Details:</p>
-                                <div id="Speed">Top Speed: ${car.Top_Speed}km/h</div>
-                                <div id="Tank">Tank Size: ${car.Tank_Size}L</div>
-                                <br>
-                            </section>
-                        </div>`
-                        wrapper.innerHTML += newdiv   
-                        
-                }
+        fetch ('http://127.0.0.1:8000/api/')
+        .then (response => response.json())
+        .then (cars => console.log(cars))
+        .then (cars => {
+            for (let car of cars) {
+                let div = document.createElement('div')
+                
             }
         })
-        .catch((error) => {
-            console.log(error)})
     }
 </script>
 {% endblock %}

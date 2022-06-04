@@ -15,7 +15,7 @@ class All_Cars(APIView):
 	queryset = Model.objects.all()
 
 	def get(self, request, *args, **kwargs):
-		Cars = Model.objects.all()
+		Cars = Model.objects.all().order_by('-id')
 		serializer = ModelSerializer(Cars, many=True)
 
 		return Response(serializer.data)

@@ -14,3 +14,6 @@ def blog(request):
 
 def brands(request):
     return render(request, "frontend/Brands.html")
+
+def NewTest(request):
+    return render(request, "frontend/New.html")

@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'Cars.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd9k6gnlt28vvn2',
+        'USER': 'dkrfdahhhqlwtb',
+        'PASSWORD': '0c319e6c0e866f687a2f518da6ba86b613eeeb51504c2857551a446b72a21e74',
+        'HOST': 'ec2-54-204-56-171.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
