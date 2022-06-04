@@ -1,116 +1,107 @@
-{% extends "frontend/Layout.html" %}
-{% load static %}
-
-{% block body %}
+{% extends "frontend/Layout.html" %} {% load static %} {% block body %}
 
 <div class="all-brands" id="all-brands">
-    
-    <div class="letter-place" id="letter-place">
-
-    </div>
-    
+  <div class="letter-place" id="letter-place"></div>
 </div>
 
-
-
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const letterpage = document.getElementById('letter-place');
+document.addEventListener("DOMContentLoaded", () => {
+  const letterpage = document.getElementById("letter-place");
   const alphabet = [
-    'A',
-    'B',
-    'C',
-    'D',
-    'E',
-    'F',
-    'G',
-    'H',
-    'I',
-    'J',
-    'K',
-    'L',
-    'M',
-    'N',
-    'O',
-    'P',
-    'Q',
-    'R',
-    'S',
-    'T',
-    'U',
-    'V',
-    'W',
-    'X',
-    'Y',
-    'Z',
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
   ];
 
   for (let letter of alphabet) {
-    const letterDiv = document.createElement('div');
+    const letterDiv = document.createElement("div");
 
     const content = `
-                    <div id="${letter}" style="display: block">
-                    <h3 id="letter">${letter}</h3>
-                    <hr>
-                    <div id="brands-list-${letter}" class="brands-list">
-                    </div>
-                    </div>
-                `;
+                  <div id="${letter}" style="display: block">
+                  <h3 id="letter">${letter}</h3>
+                  <hr>
+                  <div id="brands-list-${letter}" class="brands-list">
+                  </div>
+                  </div>
+              `;
     letterDiv.innerHTML = content;
 
     letterpage.append(letterDiv);
   }
 
-  fetch('http://127.0.0.1:8000/api/brands/all')
+  fetch("http://127.0.0.1:8000/api/brands/all")
     .then((reponse) => reponse.json())
     .then((brands) => {
       const alphabet = [
-        'A',
-        'B',
-        'C',
-        'D',
-        'E',
-        'F',
-        'G',
-        'H',
-        'I',
-        'J',
-        'K',
-        'L',
-        'M',
-        'N',
-        'O',
-        'P',
-        'Q',
-        'R',
-        'S',
-        'T',
-        'U',
-        'V',
-        'W',
-        'X',
-        'Y',
-        'Z',
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
       ];
       for (let brand of brands) {
         let name = brand.Name;
         let image = brand.BrandImage;
         let firstletter = name[0];
 
-        const Div = document.createElement('div');
+        const Div = document.createElement("div");
 
         const content = `
-            <div id="index-child-div">
-            
-                <div class="card" id='brand-card' style="width: 200px; height: 250px; display: block; text-align: center">
-                <img src="http://127.0.0.1:8000${image}" width='100' alt="None">
-                <div class="card-body">
-                <div class="card-body" style="position: absolute; bottom: 0px;">
-                <h5 class="card-title" id='brand-name'>${name}</h5>
-                <a href="/brands/${name}" class="btn btn-primary">Check out Page</a>
-                </div>
-            </div>
-            `;
+          <div id="index-child-div">
+          
+              <div class="card" id='brand-card' style="width: 200px; height: 250px; display: block; text-align: center">
+              <img src="http://127.0.0.1:8000${image}" width='100' alt="None">
+              <div class="card-body">
+              <div class="card-body" style="position: absolute; bottom: 0px;">
+              <h5 class="card-title" id='brand-name'>${name}</h5>
+              <a href="/brands/${name}" class="btn btn-primary">Check out Page</a>
+              </div>
+          </div>
+          `;
 
         Div.innerHTML = content;
 
