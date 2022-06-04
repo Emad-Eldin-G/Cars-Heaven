@@ -4,16 +4,17 @@ from django.shortcuts import render, redirect
 # Create your views here.
 
 def index(request):
-    return render(request, "frontend/Layout.html")
+    return render(request, "Layout.html")
 
 def home(request):
-    return render(request, "frontend/Home.html")
+    return render(request, "Home.html")
 
 def blog(request):
-    return render(request, "frontend/Blog.html")
+    return render(request, "Blog.html")
 
 def brands(request):
-    return render(request, "frontend/Brands.html")
+    return render(request, "Brands.html")
 
 def NewTest(request):
-    return render(request, "frontend/New.html")
+    return render(request, "New.html")
+

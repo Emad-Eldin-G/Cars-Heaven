@@ -1,0 +1,15 @@
+{% extends "Layout.html" %} 
+
+{% load crispy_forms_tags %} {% block body %}
+
+<form method="post">
+  {% csrf_token %}{{form|crispy}}
+  
+  <div>
+    <button type="submit" class="btn btn-success">Register</button>
+    <a href="/login">Sign in</a> 
+  </div>
+
+</form>
+
+{% endblock %}
