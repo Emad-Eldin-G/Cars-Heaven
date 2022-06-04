@@ -82,8 +82,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'd9k6gnlt28vvn2',
-        'USER': 'dkrfdahhhqlwtb',
-        'PASSWORD': '0c319e6c0e866f687a2f518da6ba86b613eeeb51504c2857551a446b72a21e74',
+        'USER': os.environ.get('CARS-HEAVEN-POSTGRES-USER'),
+        'PASSWORD': os.environ.get('CARS-HEAVEN-POSTGRESQL-PASS'),
         'HOST': 'ec2-54-204-56-171.compute-1.amazonaws.com',
         'PORT': '5432'
     }
