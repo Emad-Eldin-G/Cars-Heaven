@@ -63,25 +63,25 @@ html {
   filter: drop-shadow(5px 5px 5px #222222);
 }
 
-.carousel-item div button:hover{
+.carousel-item div button:hover {
   font-size: 15px;
 }
 
-@media screen and (min-width: 1000px){
-  .carousel-caption{
+@media screen and (min-width: 1000px) {
+  .carousel-caption {
     font-size: 50px;
-  }    
+  }
 }
 
-.modal-body form div label{
+.modal-body form div label {
   color: black;
 }
 
-.modal-body form div{
+.modal-body form div {
   margin: 2px;
 }
 
-.col-form-label{
+.col-form-label {
   font-size: 20px;
   color: #222222;
 }
@@ -94,7 +94,7 @@ html {
   font-family: Arial;
   padding: 20px;
   background: #f1f1f1;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 /* Header/Blog- Title */
@@ -107,7 +107,7 @@ html {
 
 /* Create two unequal columns that floats next to each other */
 /* Left column */
-.blog-leftcolumn {   
+.blog-leftcolumn {
   float: left;
   width: 75%;
 }
@@ -128,9 +128,9 @@ html {
 
 /* Add a card effect for articles */
 .blog-card {
-   background-color: white;
-   padding: 20px;
-   margin-top: 20px;
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
 }
 
 /* Clear floats after the columns */
@@ -150,7 +150,8 @@ html {
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
-  .blog-leftcolumn, .blog-rightcolumn {   
+  .blog-leftcolumn,
+  .blog-rightcolumn {
     width: 100%;
     padding: 0;
   }
@@ -174,4 +175,3 @@ html {
   position: relative;
   text-align: left;
 }
-

@@ -1,28 +1,22 @@
-{% extends "frontend/Layout.html" %}
-{% load static %}
-
+{% extends "frontend/Layout.html" %} 
+{% load static %} 
 {% block body %}
-<h1 id='New-H1'>Newest Cars</h1>
+<h1 id="New-H1">Newest Cars</h1>
 
-<div id="New-div-box">
-</div>
-
+<div id="New-div-box"></div>
 
 <script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", AddDiv());
 
-    document.addEventListener("DOMContentLoaded", AddDiv())
-
-    function AddDiv() {
-
-        fetch ('http://127.0.0.1:8000/api/')
-        .then (response => response.json())
-        .then (cars => console.log(cars))
-        .then (cars => {
-            for (let car of cars) {
-                let div = document.createElement('div')
-                
-            }
-        })
-    }
+  function AddDiv() {
+    fetch("http://127.0.0.1:8000/api/")
+      .then((response) => response.json())
+      .then((cars) => console.log(cars))
+      .then((cars) => {
+        for (let car of cars) {
+          let div = document.createElement("div");
+        }
+      });
+  }
 </script>
 {% endblock %}

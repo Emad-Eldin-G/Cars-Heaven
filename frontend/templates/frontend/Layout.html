@@ -1,41 +1,85 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Cars Heaven</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.0/dist/showdown.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="icon" type="image/x-icon" href="frontend\static\media\Cars-heaven-Logo.png">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="frontend\static\media\Cars-heaven-Logo.png"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     <script src="{% static 'js/api.js' %}"></script>
-    
-</head>
+  </head>
 
-<body>
-
-  <div class="loader-wrapper" style="width: 100%; height: 100%; position: fixed; z-index: 100; display: flex; justify-content: center; align-items: center; background-color: rgb(34, 34, 34);">
-    <span class="loader"><span class="loader-inner"><img id="Loading-Logo" src="http://127.0.0.1:8000/frontend/static/media/loading/Cars-heaven-Logo.png" width="350" alt="Loading..."></span></span>
-  </div>
+  <body>
+    <div
+      class="loader-wrapper"
+      style="
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(34, 34, 34);
+      "
+    >
+      <span class="loader"
+        ><span class="loader-inner"
+          ><img
+            id="Loading-Logo"
+            src="http://127.0.0.1:8000/frontend/static/media/loading/Cars-heaven-Logo.png"
+            width="350"
+            alt="Loading..." /></span
+      ></span>
+    </div>
 
     <!-- This is the 'div' for top Nav-Bar -->
     <div class="menu-bar .sticky-top" id="Nav-Bar">
-
       <nav class="navbar navbar-expand-lg rounded .sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">Cars Heaven</a>
-          <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <a class="navbar-brand" href="{% url 'home' %}">Cars Heaven</a>
+          <button
+            class="navbar-toggler navbar-dark"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon navbar-dark"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="nav-bar-ul">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="{% url 'home' %}"
+                  >Home</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'blog' %}">Blog</a>
@@ -47,30 +91,30 @@
                 <a class="nav-link" href="#">Latest</a>
               </li>
             </ul>
-            <form class="d-flex" >
-              <input style="text-align: left;" id="Search-Bar" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex">
+              <input
+                style="text-align: left"
+                id="Search-Bar"
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
             </form>
           </div>
         </div>
       </nav>
-
     </div>
 
-    <div class="footer">
-
-    </div>
+    <div class="footer"></div>
 
     <!-- To be used by other pages -->
-    {% block body %}
-
-    {% endblock %}
-    
+    {% block body %} {% endblock %}
 
     <script>
-      $(window).on('load', ()=> {
-        $(".loader-wrapper").fadeOut("slow")
-      })
+      $(window).on("load", () => {
+        $(".loader-wrapper").fadeOut("slow");
+      });
     </script>
-</body>
-
+  </body>
 </html>
