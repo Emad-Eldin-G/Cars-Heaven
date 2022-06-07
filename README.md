@@ -8,6 +8,7 @@ Building a backend REST-API that serves the frontend of an all-purpose Cars web 
 - Blog page for articles about the latest news in the automotive industry
 - Car page with various pictures and specifications displayed 
 - Email client to subscribe to new blog posts 
+- User Authentication and profile management 
 
 
 
