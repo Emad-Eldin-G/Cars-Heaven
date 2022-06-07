@@ -18,3 +18,4 @@ Tools Used:
 Django - REST-API - PostgreSQL - Bootstrap 5
 
 Status: (Under Dev)
+TO BE HOSTED
